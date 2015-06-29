@@ -1,9 +1,29 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.io.*;
 
 public class Main {
 
 	public static final void main(String[] args){
+		int MAX = 1000*1000*1000;
+		List<Integer> list = new ArrayList<Integer>();
+		for (int i=0; i<MAX; ++i) {
+			System.out.println(i);
+			Integer k = new Integer(i);
+			//list.add(k);
+			
+			/*
+			try{
+				Thread.sleep(1);
+			}catch(Exception e) {
+	
+			}
+			*/
+		}
+	}
+
+
+	public static final void main1(String[] args){
 		System.out.println("main begin");
 
 		Name name = new Name();
