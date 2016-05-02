@@ -1,0 +1,8 @@
+.idea
+.gradle
+AndroidDemo/build/
+AndroidDemo/gradle
+AndroidDemo/gradlew
+AndroidDemo/gradlew.bat
+AndroidDemo/AndroidDemo.iml
+AndroidDemo/local.properties
