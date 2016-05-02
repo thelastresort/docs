@@ -28,6 +28,12 @@ android {
             keyAlias "guopan.keystore"
             keyPassword "guopan"
         }
+        debug {
+            storeFile file("./guopan.keystore")
+            storePassword "guopan"
+            keyAlias "guopan.keystore"
+            keyPassword "guopan"
+        }
     }
 
     defaultConfig {

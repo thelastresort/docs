@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -15,49 +17,81 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends Activity {
 
-    String TAG = "MainActivity";
-    View mGoToLogin;
-    TextView mTvLog;
+    private static final String TAG = "MainActivity";
+    private ArrayList<String> mStringList = new ArrayList<>();
 
-    private static final String APP_ID = "101101";
-    private static final String APP_KEY = "GuopanSDK8^(Llad";
-
-    private boolean mIsInitSuc = false;
-
-    private boolean mIsTest = true;
-
-    // TODO 请注意demo中标记TODO的地方
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        findViewById(R.id.goto_login_btn).setOnClickListener(listener);
-        findViewById(R.id.buy_btn).setOnClickListener(listener);
-        findViewById(R.id.btn_logout).setOnClickListener(listener);
-        findViewById(R.id.btn_invoke_init_and_login).setOnClickListener(listener);
-        findViewById(R.id.btn_invoke_sdk_version).setOnClickListener(listener);
-        findViewById(R.id.btn_invoke_login_info).setOnClickListener(listener);
-        findViewById(R.id.btn_invoke_exit).setOnClickListener(listener);
-        findViewById(R.id.btn_switch_environment).setOnClickListener(listener);
-        findViewById(R.id.btn_upload_player_info).setOnClickListener(listener);
-        mGoToLogin = findViewById(R.id.goto_login_btn);
-        mTvLog = (TextView) findViewById(R.id.tv_log);
-    }
-
-    private OnClickListener listener = new OnClickListener() {
+    private static final int MSG_MULTI_THREAD_ACCESS_DATA = 1;
+    private Handler mHandler = new Handler() {
         @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.buy_btn:
+        public void handleMessage(Message message) {
+            switch (message.what) {
+                case MSG_MULTI_THREAD_ACCESS_DATA:
+                    handleMultiThreadDataMessage();
                     break;
                 default:
                     break;
             }
         }
     };
+
+    /**
+     * 主线程处理数据（数据是其他线程已经处理好的）
+     */
+    private void handleMultiThreadDataMessage() {
+        for (String str : mStringList) {
+            Log.i(TAG, "str is  " + str);
+        }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        findViewById(R.id.btn_multi_thread_access_data).setOnClickListener(listener);
+    }
+
+    private OnClickListener listener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.btn_multi_thread_access_data:
+                    onClickMultiThreadAccessData();
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+
+    private void onClickMultiThreadAccessData() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Log.i(TAG, "************ sleep for some time ***********");
+                        Thread.sleep(1000); // 试试这里改成1毫秒
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    mStringList.clear();
+                    for (int i = 0; i < 10; ++i) {
+                        mStringList.add("str" + i);
+                    }
+
+                    // 发送消息到主线程，将数据较给主线程处理
+                    mHandler.sendEmptyMessage(MSG_MULTI_THREAD_ACCESS_DATA);
+                }
+            }
+        }).start();
+    }
 
 
     private void showToast(String text) {
