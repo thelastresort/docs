@@ -11,8 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="16dp">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btn_multi_thread_access_data"
@@ -20,7 +19,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="多个线程access数据"
-            android:visibility="visible"/>
+            android:layout_marginTop="15dp"/>
+
+        <Button
+            android:id="@+id/btn_use_used_message"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="一直拥有Msg的引用"
+            android:layout_marginTop="15dp"/>
 
     </LinearLayout>
 
