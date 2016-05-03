@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
 
     private static final int MSG_MULTI_THREAD_ACCESS_DATA = 1;
     private static final int MSG_USE_USED_MESSAGE = 2;
+    private static final int MSG_DELAY = 3;
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message message) {
@@ -38,6 +39,9 @@ public class MainActivity extends Activity {
                     break;
                 case MSG_USE_USED_MESSAGE:
                     handleUseUsedMessage(message);
+                    break;
+                case MSG_DELAY:
+                    Log.i(TAG, "handle delay mesage, msg.what=" + message.what);
                     break;
                 default:
                     break;
@@ -68,6 +72,7 @@ public class MainActivity extends Activity {
 
         findViewById(R.id.btn_multi_thread_access_data).setOnClickListener(listener);
         findViewById(R.id.btn_use_used_message).setOnClickListener(listener);
+        findViewById(R.id.btn_send_an_delay_message).setOnClickListener(listener);
     }
 
 
@@ -81,11 +86,20 @@ public class MainActivity extends Activity {
                 case R.id.btn_use_used_message:
                     onClickUsedMessage();
                     break;
+                case R.id.btn_send_an_delay_message:
+                    onClickSendDelayMessage();
+                    break;
                 default:
                     break;
             }
         }
     };
+
+
+    private void onClickSendDelayMessage() {
+        Log.i(TAG, "onClickSendDelayMessage");
+        mHandler.sendEmptyMessageDelayed(MSG_DELAY, 10000);
+    }
 
 
     private void onClickUsedMessage() {
@@ -141,5 +155,19 @@ public class MainActivity extends Activity {
 
     public static void show(Context context, CharSequence text) {
         Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, "onDestroy");
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause");
     }
 }
