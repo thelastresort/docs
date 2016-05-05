@@ -73,6 +73,7 @@ public class MainActivity extends Activity {
         findViewById(R.id.btn_multi_thread_access_data).setOnClickListener(listener);
         findViewById(R.id.btn_use_used_message).setOnClickListener(listener);
         findViewById(R.id.btn_send_an_delay_message).setOnClickListener(listener);
+        findViewById(R.id.btn_adapter_data).setOnClickListener(listener);
     }
 
 
@@ -88,6 +89,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.btn_send_an_delay_message:
                     onClickSendDelayMessage();
+                    break;
+                case R.id.btn_adapter_data:
+                    startActivity(new Intent(MainActivity.this, ListViewActivity.class));
                     break;
                 default:
                     break;

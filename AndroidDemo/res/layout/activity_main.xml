@@ -37,6 +37,14 @@
             android:text="发送延后处理的msg"
             android:layout_marginTop="15dp"/>
 
+        <Button
+            android:id="@+id/btn_adapter_data"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="listview数据容易出错"
+            android:layout_marginTop="15dp"/>
+
     </LinearLayout>
 
 </ScrollView>

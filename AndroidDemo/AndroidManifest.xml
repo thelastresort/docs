@@ -61,6 +61,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ListViewActivity"
+                  android:configChanges="orientation|keyboardHidden|screenSize"
+                  android:screenOrientation="sensor"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        </activity>
     </application>
 
 
