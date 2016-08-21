@@ -179,29 +179,35 @@ public class SearchAppActivity extends Activity {
             return;
         }
         for (AppInfo appInfo : list) {
-            appInfo.pinyinNameToDigit = getPinyinNameDigit(appInfo.appname);
+            appInfo.pinyinNameToDigit = getDigitsByAppName(appInfo.appname);
             Log.i(TAG, "app name to digit " + appInfo.appname + " " + appInfo.pinyinNameToDigit);
         }
     }
 
 
-    private String getPinyinNameDigit(String appName) {
+    private String getDigitsByAppName(String appName) {
         if (TextUtils.isEmpty(appName)) {
             return "";
         }
         String s = "";
         for (int i=0; i<appName.length(); ++i) {
             char c = appName.charAt(i);
-            if (Character.isDigit(c)) {
-                s += c;
-            } else if (('A' <=c  && c <= 'Z') || ('a' <= c && c <= 'z')) {
-                s += PINYIN_TO_DIGIT.charAt(Character.toLowerCase(c) - 'a');
-            } else if (Character.isSpaceChar(appName.charAt(i))) {
-                // 空格不处理
-            } else if (chiCharacterToDigit.containsKey(appName.charAt(i))) {
-                Log.i(TAG, appName.charAt(i) + " -> " + chiCharacterToDigit.get(appName.charAt(i)));
-                s += chiCharacterToDigit.get(appName.charAt(i));
-            }
+            s += getDigitsByChar(c);
+        }
+        return s;
+    }
+
+    private String getDigitsByChar(char c) {
+        String s = "";
+        if (Character.isDigit(c)) {
+            s = ""+c;
+        } else if (('A' <=c  && c <= 'Z') || ('a' <= c && c <= 'z')) {
+            s = ""+PINYIN_TO_DIGIT.charAt(Character.toLowerCase(c) - 'a');
+        } else if (Character.isSpaceChar(c)) {
+            // 空格不处理
+        } else if (chiCharacterToDigit.containsKey(c)) {
+//            Log.i(TAG, c + " -> " + chiCharacterToDigit.get(c));
+            s = chiCharacterToDigit.get(c);
         }
         return s;
     }
