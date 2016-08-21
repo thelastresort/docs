@@ -39,6 +39,7 @@ public class AppInfoProvider {
                     version = "unkonw";
                 myApp.version = version;
                 myApp.packname = packname;
+                myApp.versionCode = info.versionCode;
                 ApplicationInfo appinfo = info.applicationInfo;
                 myApp.appname = appinfo.loadLabel(packmanager).toString();
                 myApp.installTime = info.firstInstallTime;

@@ -40,6 +40,17 @@
                     android:singleLine="true"
                     android:textColor="@android:color/background_dark"
                     android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/version_pkg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="6dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp"/>
             </LinearLayout>
 
         </RelativeLayout>

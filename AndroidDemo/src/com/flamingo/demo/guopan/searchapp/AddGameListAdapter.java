@@ -60,6 +60,7 @@ class AddGameListAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.icon = (ImageView) view.findViewById(R.id.add_game_icon);
             holder.name = (TextView) view.findViewById(R.id.add_game_name);
+            holder.versionAndPkg = (TextView) view.findViewById(R.id.version_pkg);
             convertView = view;
             convertView.setTag(holder);
         } else {
@@ -72,6 +73,7 @@ class AddGameListAdapter extends BaseAdapter {
         }
         final AppInfo appInfo = (AppInfo) obj;
         holder.name.setText(appInfo.appname);
+        holder.versionAndPkg.setText(appInfo.version+"("+appInfo.versionCode+")   " + appInfo.packname);
         if (appInfo.icon != null) {
             holder.icon.setBackgroundDrawable(appInfo.icon);
         } else {
@@ -105,5 +107,6 @@ class AddGameListAdapter extends BaseAdapter {
     class ViewHolder {
         ImageView icon;
         TextView name;
+        TextView versionAndPkg;
     }
 }

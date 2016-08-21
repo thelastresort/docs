@@ -15,6 +15,7 @@ public class AppInfo{
     public String appname;
     public String packname;
     public String version;
+    public int versionCode;
     public Drawable icon;
     public long installTime = 0;
     public ApplicationInfo applicationInfo;
