@@ -74,6 +74,8 @@ public class MainActivity extends Activity {
         findViewById(R.id.btn_use_used_message).setOnClickListener(listener);
         findViewById(R.id.btn_send_an_delay_message).setOnClickListener(listener);
         findViewById(R.id.btn_adapter_data).setOnClickListener(listener);
+        findViewById(R.id.btn_make_a_crash).setOnClickListener(listener);
+        findViewById(R.id.btn_app_list_page).setOnClickListener(listener);
     }
 
 
@@ -93,6 +95,12 @@ public class MainActivity extends Activity {
                 case R.id.btn_adapter_data:
                     startActivity(new Intent(MainActivity.this, ListViewActivity.class));
                     break;
+                case R.id.btn_make_a_crash:
+                    makeCrash();
+                    break;
+                case R.id.btn_app_list_page:
+                    openAppListPage();
+                    break;
                 default:
                     break;
             }
@@ -100,7 +108,20 @@ public class MainActivity extends Activity {
     };
 
 
+    private void openAppListPage(){
+        startActivity(new Intent(this, SearchAppActivity.class));
+    }
+
+
+    private void makeCrash() {
+        String s = "";
+        char c = s.charAt(1);
+    }
+
+
     private void onClickSendDelayMessage() {
+        // do something cost time
+
         Log.i(TAG, "onClickSendDelayMessage");
         mHandler.sendEmptyMessageDelayed(MSG_DELAY, 10000);
     }

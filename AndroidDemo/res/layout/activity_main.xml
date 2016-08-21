@@ -45,6 +45,22 @@
             android:text="listview数据容易出错"
             android:layout_marginTop="15dp"/>
 
+        <Button
+            android:id="@+id/btn_make_a_crash"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="制造一个异常"
+            android:layout_marginTop="15dp"/>
+
+        <Button
+            android:id="@+id/btn_app_list_page"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="app列表"
+            android:layout_marginTop="15dp"/>
+
     </LinearLayout>
 
 </ScrollView>
