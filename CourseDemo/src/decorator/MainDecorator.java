@@ -1,5 +1,8 @@
 package decorator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainDecorator {
 
 	public static void main(String[] args) {
@@ -14,5 +17,18 @@ public class MainDecorator {
 		System.out.println("GiantMan run with decorator: " + giantMan.run());
 
 		System.out.println("end");
+	}
+	
+	
+	public List<String> getNameByTa(String taName) {
+		if (null == taName || taName.length() == 0) {
+			return null;
+		}
+		
+		List<String> names = new ArrayList<String>();
+		
+		//...
+		
+		return names;
 	}
 }
