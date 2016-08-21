@@ -1,4 +1,4 @@
-package com.flamingo.demo.guopan;
+package com.flamingo.demo.guopan.searchapp;
 
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -18,6 +18,7 @@ public class AppInfo{
     public Drawable icon;
     public long installTime = 0;
     public ApplicationInfo applicationInfo;
+    public String pinyinNameToDigit;
 
     private PackageManager packmanager;
 

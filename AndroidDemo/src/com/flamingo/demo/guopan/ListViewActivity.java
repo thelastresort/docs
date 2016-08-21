@@ -7,6 +7,8 @@ import android.os.Message;
 import android.view.View;
 import android.widget.ListView;
 
+import com.flamingo.demo.oak.R;
+
 import java.util.ArrayList;
 import java.util.List;
 

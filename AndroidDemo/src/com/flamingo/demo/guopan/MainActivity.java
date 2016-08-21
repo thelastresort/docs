@@ -3,19 +3,16 @@ package com.flamingo.demo.guopan;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.flamingo.demo.guopan.searchapp.SearchAppActivity;
+import com.flamingo.demo.oak.R;
 
 import java.util.ArrayList;
 

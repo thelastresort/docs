@@ -1,4 +1,4 @@
-package com.flamingo.demo.guopan;
+package com.flamingo.demo.guopan.searchapp;
 
 import android.app.Activity;
 import android.content.Context;

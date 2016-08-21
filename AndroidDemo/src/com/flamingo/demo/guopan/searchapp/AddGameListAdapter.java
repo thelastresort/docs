@@ -1,4 +1,4 @@
-package com.flamingo.demo.guopan;
+package com.flamingo.demo.guopan.searchapp;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.flamingo.demo.oak.R;
 
 import java.util.ArrayList;
 import java.util.List;

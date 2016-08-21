@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.flamingo.demo.oak.R;
+
 import java.util.List;
 
 /**

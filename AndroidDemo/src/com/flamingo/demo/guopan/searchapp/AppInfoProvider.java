@@ -1,4 +1,4 @@
-package com.flamingo.demo.guopan;
+package com.flamingo.demo.guopan.searchapp;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -7,11 +7,7 @@ import android.content.pm.PackageManager;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.List;
-import java.util.Map;
-import java.util.Vector;
 
 public class AppInfoProvider {
 
