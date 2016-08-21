@@ -137,7 +137,7 @@ public class SearchAppActivity extends Activity {
         if (null == appInfo || TextUtils.isEmpty(key)) {
             return false;
         }
-        if (appInfo.appname.contains(key)) {
+        if (appInfo.appname.toLowerCase().contains(key.toLowerCase())) {
             return true;
         }
         if (TextUtils.isEmpty(appInfo.pinyinNameToDigit)) {
