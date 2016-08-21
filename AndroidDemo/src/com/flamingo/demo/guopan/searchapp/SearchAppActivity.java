@@ -140,6 +140,9 @@ public class SearchAppActivity extends Activity {
         if (appInfo.appname.contains(key)) {
             return true;
         }
+        if (TextUtils.isEmpty(appInfo.pinyinNameToDigit)) {
+            return false;
+        }
         String strLarge = appInfo.pinyinNameToDigit;
         String strSmall = key;
         int startPos = 0;
@@ -166,8 +169,8 @@ public class SearchAppActivity extends Activity {
             public void run() {
                 AppInfoProvider appInfoProvider = new AppInfoProvider(SearchAppActivity.this);
                 List<AppInfo> list = appInfoProvider.getAllApps();
-                initPinyinTable();
-                setPinyinNameDigitToAppinfo(list);
+//                initPinyinTable();
+//                setPinyinNameDigitToAppinfo(list);
                 mHandler.sendMessage(mHandler.obtainMessage(MSG_GET_DATA_DONE, 0, 0, list));
             }
         }).start();
