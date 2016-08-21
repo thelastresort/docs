@@ -22,7 +22,6 @@ public class JumpSettingUtils {
 //        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //        i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 //        i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        contex
-        t.startActivity(i);
+        context.startActivity(i);
     }
 }
