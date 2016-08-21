@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
-              android:layout_height="60dp"
+              android:layout_height="70dp"
               android:background="@android:color/white"
               android:orientation="vertical">
 
@@ -9,18 +9,22 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#00ffffff"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center|left"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:padding="3dp"
             >
 
             <ImageView
                 android:id="@+id/add_game_icon"
-                android:layout_width="54dp"
-                android:layout_height="54dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="5dp"
                 android:background="@android:color/darker_gray"/>
 
             <LinearLayout
@@ -47,10 +51,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_vertical"
                     android:layout_marginLeft="6dp"
+                    android:layout_marginTop="5dp"
                     android:ellipsize="end"
                     android:singleLine="true"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="12sp"/>
+                    android:textSize="13sp"/>
             </LinearLayout>
 
         </RelativeLayout>

@@ -55,11 +55,8 @@
             android:label="@string/app_name"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="sensor"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:theme="@android:style/Theme.NoTitleBar">
+
         </activity>
         <activity android:name="com.flamingo.demo.guopan.ListViewActivity"
                   android:configChanges="orientation|keyboardHidden|screenSize"
@@ -69,7 +66,11 @@
         <activity android:name="com.flamingo.demo.guopan.searchapp.SearchAppActivity"
                   android:configChanges="orientation|keyboardHidden|screenSize"
                   android:screenOrientation="portrait"
-                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+                  android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
