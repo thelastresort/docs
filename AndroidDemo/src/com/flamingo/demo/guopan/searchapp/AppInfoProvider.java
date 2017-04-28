@@ -30,7 +30,7 @@ public class AppInfoProvider {
             return infos_list;
         } else {
             infos_list = new ArrayList<AppInfo>();
-            List<PackageInfo> packinfos = packmanager.getInstalledPackages(PackageManager.GET_UNINSTALLED_PACKAGES);
+            List<PackageInfo> packinfos = packmanager.getInstalledPackages(0);
             for (PackageInfo info : packinfos) {
                 AppInfo myApp = new AppInfo(packmanager);
                 String packname = info.packageName;
